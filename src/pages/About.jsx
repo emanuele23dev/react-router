@@ -2,8 +2,10 @@ export default function About() {
   return (
     <>
       <header>
-        <div className="logo">
-          <img src="../src/assets/react.svg" alt="" />
+        <div className="nav">
+          <a href="/">
+            <img src="../src/assets/react.svg" alt="" />
+          </a>
         </div>
         <nav>
           <a href="/">Home</a>
@@ -13,7 +15,7 @@ export default function About() {
       </header>
 
       <main>
-        <h1>About Page</h1>
+        <h1>React Blog Pages</h1>
       </main>
 
       <footer>

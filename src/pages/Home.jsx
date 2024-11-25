@@ -2,8 +2,10 @@ export default function Home() {
   return (
     <>
       <header>
-        <div className="logo">
-          <img src="../src/assets/react.svg" alt="" />
+        <div className="nav">
+          <a href="/">
+            <img src="../src/assets/react.svg" alt="" />
+          </a>
         </div>
         <nav>
           <a href="/">Home</a>
@@ -13,7 +15,8 @@ export default function Home() {
       </header>
 
       <main>
-        <h1>Home Page</h1>
+        <h1>React Blog Pages</h1>
+        <img className="logo" src="../src/assets/react.svg" alt="" />
       </main>
 
       <footer>

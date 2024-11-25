@@ -54,8 +54,10 @@ export default function Posts() {
   return (
     <>
       <header>
-        <div className="logo">
-          <img src="../src/assets/react.svg" alt="" />
+        <div className="nav">
+          <a href="/">
+            <img src="../src/assets/react.svg" alt="" />
+          </a>
         </div>
         <nav>
           <a href="/">Home</a>
@@ -65,7 +67,7 @@ export default function Posts() {
       </header>
 
       <main>
-        <h1>Posts Page</h1>
+        <h1>React Blog Pages</h1>
 
         <div className="container-form mt-5">
           <form onSubmit={handleSubmit}>
