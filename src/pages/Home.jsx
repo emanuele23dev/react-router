@@ -15,7 +15,7 @@ export default function Home() {
       </header>
 
       <main>
-        <h1>React Blog Pages</h1>
+        <h1 className="title">React Blog Pages</h1>
         <img className="logo" src="../src/assets/react.svg" alt="" />
       </main>
 

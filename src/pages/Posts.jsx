@@ -67,7 +67,7 @@ export default function Posts() {
       </header>
 
       <main>
-        <h1>React Blog Pages</h1>
+        <h1 className="title">React Blog Pages</h1>
 
         <div className="container-form mt-5">
           <form onSubmit={handleSubmit}>
