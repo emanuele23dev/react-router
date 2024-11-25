@@ -2,7 +2,9 @@ export default function Home() {
   return (
     <>
       <header>
-        <div className="logo">LOGO</div>
+        <div className="logo">
+          <img src="../src/assets/react.svg" alt="" />
+        </div>
         <nav>
           <a href="/">Home</a>
           <a href="/about">Chi siamo</a>
