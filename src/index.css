@@ -46,6 +46,20 @@ main {
   }
 }
 
+.container-form {
+  width: 50%;
+  margin: auto;
+}
+
+.trash-icon {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  i {
+    color: rgb(110, 110, 110);
+  }
+}
+
 footer {
   p {
     text-align: center;
