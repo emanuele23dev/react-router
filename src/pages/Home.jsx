@@ -1,3 +1,5 @@
+import NavMenu from "../components/NavMenu";
+import Footer from "../components/Footer";
 export default function Home() {
   return (
     <>
@@ -7,11 +9,7 @@ export default function Home() {
             <img src="../src/assets/react.svg" alt="" />
           </a>
         </div>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">Chi siamo</a>
-          <a href="posts">Blog Posts</a>
-        </nav>
+        <NavMenu />
       </header>
 
       <main>
@@ -19,9 +17,7 @@ export default function Home() {
         <img className="logo" src="../src/assets/react.svg" alt="" />
       </main>
 
-      <footer>
-        <p>&copy; {new Date().getFullYear()} React Router App</p>
-      </footer>
+      <Footer />
     </>
   );
 }

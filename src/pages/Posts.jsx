@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import NavMenu from "../components/NavMenu";
+import Footer from "../components/Footer";
 
 export default function Posts() {
   const [articoli, setArticoli] = useState([]);
@@ -59,11 +61,7 @@ export default function Posts() {
             <img src="../src/assets/react.svg" alt="" />
           </a>
         </div>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/about">Chi siamo</a>
-          <a href="posts">Blog Posts</a>
-        </nav>
+        <NavMenu />
       </header>
 
       <main>
@@ -153,9 +151,7 @@ export default function Posts() {
         </div>
       </main>
 
-      <footer>
-        <p>&copy; {new Date().getFullYear()} React Router App</p>
-      </footer>
+      <Footer />
     </>
   );
 }
