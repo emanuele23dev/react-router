@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import NavMenu from "../components/NavMenu";
-import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Posts() {
   const [articoli, setArticoli] = useState([]);
@@ -21,7 +20,6 @@ export default function Posts() {
 
     const postData = {
       title: formData.get("title"),
-      slug: formData.get("title").toLowerCase(),
       content: formData.get("content"),
       image: formData.get("image"),
       categoria: formData.get("categoria"),
@@ -54,104 +52,95 @@ export default function Posts() {
   }
 
   return (
-    <>
-      <header>
-        <div className="nav">
-          <a href="/">
-            <img src="../src/assets/react.svg" alt="" />
-          </a>
-        </div>
-        <NavMenu />
-      </header>
+    <div className="container">
+      <h1 className="title">React Blog Pages</h1>
 
-      <main>
-        <h1 className="title">React Blog Pages</h1>
+      <div className="container-form mt-5">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="title"
+            className="form-control mb-3"
+            placeholder="Titolo"
+          />
+          <input
+            type="text"
+            name="image"
+            className="form-control mb-3"
+            placeholder="Image"
+          />
+          <textarea
+            name="content"
+            className="form-control mb-3"
+            placeholder="Content"
+          />
+          <select
+            name="categoria"
+            className="form-select mb-3"
+            defaultValue=""
+          >
+            <option value="" hidden>
+              Seleziona categoria
+            </option>
+            <option value="News">News</option>
+            <option value="Cucina Vegan">Cucina Vegan</option>
+            <option value="Animals">Animals</option>
+          </select>
+          <input
+            type="text"
+            name="tags"
+            className="form-control mb-3"
+            placeholder="#tags"
+          />
+          <div className="mb-3">
+            <input
+              type="checkbox"
+              name="pubblicato"
+              className="form-check-input me-2"
+            />
+            <label className="text-white">Pubblica</label>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Aggiungi Articolo
+          </button>
+        </form>
 
-        <div className="container-form mt-5">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="title"
-              className="form-control mb-3"
-              placeholder="Titolo"
-            />
-            <input
-              type="text"
-              name="image"
-              className="form-control mb-3"
-              placeholder="Image"
-            />
-            <textarea
-              name="content"
-              className="form-control mb-3"
-              placeholder="Content"
-            />
-            <select
-              name="categoria"
-              className="form-select mb-3"
-              defaultValue=""
+        <ul className="list-group mt-5 mb-3">
+          {articoli.map((articolo, index) => (
+            <li
+              key={index}
+              className="list-group-item position-relative rounded mb-4"
             >
-              <option value="" hidden>
-                Seleziona categoria
-              </option>
-              <option value="News">News</option>
-              <option value="Cucina Vegan">Cucina Vegan</option>
-              <option value="Animals">Animals</option>
-            </select>
-            <input
-              type="text"
-              name="tags"
-              className="form-control mb-3"
-              placeholder="#tags"
-            />
-            <div className="mb-3">
-              <input
-                type="checkbox"
-                name="pubblicato"
-                className="form-check-input me-2"
-              />
-              <label className="text-white">Pubblica</label>
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Aggiungi Articolo
-            </button>
-          </form>
-
-          <ul className="list-group mt-5 mb-5">
-            {articoli.map((articolo, index) => (
-              <li
-                key={index}
-                className="list-group-item position-relative rounded mb-5"
-              >
-                <div>
-                  <h5>{articolo.title}</h5>
-                  {articolo.image && (
+              <div>
+                <h5>{articolo.title}</h5>
+                {articolo.image && (
+                  <Link 
+                    to={`/posts/${articolo.title.toLowerCase()}`}
+                    className="text-decoration-none"
+                  >
                     <img
                       src={articolo.image}
                       alt={articolo.title}
                       className="img-fluid mb-3"
                       style={{ maxWidth: "200px" }}
                     />
-                  )}
-                  <p>{articolo.content}</p>
-                  <p>{articolo.categoria}</p>
-                  <small className="text-muted">
-                    {articolo.tags?.join(", ")}
-                  </small>
-                </div>
-                <button
-                  className="trash-icon btn btn-link text-danger position-absolute bottom-0 end-0 mb-2 me-2"
-                  onClick={() => deleteArticoli(index)}
-                >
-                  <i className="bi bi-trash"></i>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </main>
-
-      <Footer />
-    </>
+                  </Link>
+                )}
+                <p>{articolo.content}</p>
+                <small className="text-muted">
+                  {articolo.tags?.join(", ")}
+                </small>
+              </div>
+              <button
+                className="trash-icon btn btn-link text-danger position-absolute bottom-0 end-0 mb-2 me-2"
+                onClick={() => deleteArticoli(index)}
+              >
+                <i className="bi bi-trash"></i>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
